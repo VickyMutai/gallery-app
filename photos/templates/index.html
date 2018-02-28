@@ -16,47 +16,72 @@
         {% for cat in img.category.all %}
         <div id="nature" class="tab-pane fade in active">
             {% if cat.category_name == "nature" %}
-                {% if img.image_url %}
-                <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="border-radius:20%"/>
-                {% endif %}
-                <p><a href="/image/{{img.id}}">{{img.name}}</a></p>
-                <p>{{img.upload_date}}</p>
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    {% if img.image_url %}
+                    <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
+                    {% endif %}
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-default" style="margin-left:30%"><a href="">VIEW DETAILS</a></button>
+                </div>
+            </div>
             {% endif %}
         </div>  
         <div id="animal" class="tab-pane fade">
             {% if cat.category_name == "animal" %}    
-                {% if img.image_url %}
-                    <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="border-radius:20%"/>
-                {% endif %}
-                <p><a href="/image/{{img.id}}">{{img.name}}</a></p>
-                <p>{{img.upload_date}}</p>
+            <div class="panel panel-primary">
+                    <div class="panel-body">
+                        {% if img.image_url %}
+                        <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
+                        {% endif %}
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" style="margin-left:30%"><a href="">VIEW DETAILS</a></button>
+                    </div>
+                </div>
             {% endif %}
         </div>
         <div id="art" class="tab-pane fade">
             {% if cat.category_name == "art" %}
-                {% if img.image_url %}
-                    <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="border-radius:20%"/>
-                {% endif %}
-                <p><a href="/image/{{img.id}}">{{img.name}}</a></p>
-                <p>{{img.upload_date}}</p>
+            <div class="panel panel-primary">
+                    <div class="panel-body">
+                        {% if img.image_url %}
+                        <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
+                        {% endif %}
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" style="margin-left:30%"><a href="">VIEW DETAILS</a></button>
+                    </div>
+                </div>
             {% endif %}
         </div>
         <div id="photography" class="tab-pane fade">
             {% if cat.category_name == "photography" %}
-                {% if img.image_url %}
-                    <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="border-radius:20%"/>
-                {% endif %}
-                <p><a href="/image/{{img.id}}">{{img.name}}</a></p>
-                <p>{{img.upload_date}}</p>
+            <div class="panel panel-primary">
+                    <div class="panel-body">
+                        {% if img.image_url %}
+                        <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
+                        {% endif %}
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" style="margin-left:30%"><a href="">VIEW DETAILS</a></button>
+                    </div>
+                </div>
             {% endif %}
         </div>   
         <div id="architecture" class="tab-pane fade">
             {% if cat.category_name == "architecture" %}
-                {% if img.image_url %}
-                    <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="border-radius:20%"/>
-                {% endif %}
-                <p><a href="/image/{{img.id}}">{{img.name}}</a></p>
-                <p>{{img.upload_date}}</p>
+            <div class="panel panel-primary">
+                    <div class="panel-body">
+                        {% if img.image_url %}
+                        <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
+                        {% endif %}
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" style="margin-left:30%"><a href="">VIEW DETAILS</a></button>
+                    </div>
+                </div>
             {% endif %}
         </div> 
         {% endfor %}
