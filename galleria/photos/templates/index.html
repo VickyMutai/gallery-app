@@ -3,4 +3,12 @@
 {% block content %}
 {{block.super}}
 <h1 class="text-center">Photogallery</h1>
+
+{% for img in images %}
+    {{img.name}}
+    {% if img.image_url %}
+        <img src="{{img.image_url.url}}" alt=""/>
+    {% endif %}
+{% endfor %}
+
 {% endblock %}
