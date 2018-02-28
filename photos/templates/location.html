@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{block.super}}
+<div class="container" style="margin-left:10%; margin-left:5%; margin-top:4%">
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active"><a href="#mara" data-toggle='tab'>Maasai Mara</a></li>
+        <li><a href="#nai" data-toggle='tab'>Nairobi</a></li>
+        <li><a href="#msa" data-toggle='tab'>Mombasa</a></li>
+        <li><a href="#malindi" data-toggle='tab'>Malindi</a></li>
+        <li><a href="#ksm" data-toggle='tab'>Kisumu</a></li>
+    </ul>
+    <div class="tab-content col-lg-4 col-md-4 col-sm-12" style="margin-top:4%">
+    
+    {% for img in images %}
+        {% for loc in img.location.all %}
+        <div id="mara" class="tab-pane fade in active">
+            {% if loc.place == "MaasaiMara" %}
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    {% if img.image_url %}
+                    <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
+                    {% endif %}
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-default" style="margin-left:30%"><a href="">VIEW DETAILS</a></button>
+                </div>
+            </div>
+            {% endif %}
+        </div>  
+        <div id="nai" class="tab-pane fade in active">
+                {% if loc.place == "Nairobi" %}
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        {% if img.image_url %}
+                        <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
+                        {% endif %}
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" style="margin-left:30%"><a href="">VIEW DETAILS</a></button>
+                    </div>
+                </div>
+                {% endif %}
+            </div>  
+            <div id="msa" class="tab-pane fade in active">
+                    {% if loc.place == "Mombasa" %}
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            {% if img.image_url %}
+                            <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
+                            {% endif %}
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" style="margin-left:30%"><a href="">VIEW DETAILS</a></button>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>  
+                <div id="malindi" class="tab-pane fade in active">
+                        {% if loc.place == "Malindi" %}
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                {% if img.image_url %}
+                                <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
+                                {% endif %}
+                            </div>
+                            <div class="panel-footer">
+                                <button class="btn btn-default" style="margin-left:30%"><a href="">VIEW DETAILS</a></button>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>  
+                    <div id="ksm" class="tab-pane fade in active">
+                            {% if loc.place == "Kisumu" %}
+                            <div class="panel panel-primary">
+                                <div class="panel-body">
+                                    {% if img.image_url %}
+                                    <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
+                                    {% endif %}
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-default" style="margin-left:30%"><a href="">VIEW DETAILS</a></button>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>  
+        {% endfor %}
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

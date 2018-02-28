@@ -26,5 +26,6 @@ def image(request,image_id):
     return render(request,'image.html',{"image":image})
     
 
-def filter_location(request):
-    pass
+def filter(request):
+    image = Image.get_images()
+    return render(request,'location.html',{"images":image})
