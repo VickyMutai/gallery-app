@@ -18,8 +18,13 @@ def search(request):
             message = "You havent searched any category"
             return render(request,'search.html',{"message":message})
 
-def image(request):
-    pass
+def image(request,image_id):
+    try:
+        image=Image.objects.get(id=image_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,'image.html',{"image":image})
+    
 
 def filter_location(request):
     pass
