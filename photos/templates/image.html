@@ -14,6 +14,12 @@
         <div class="col-md-2"></div>
         <div class="col-md-4">
             <img src="{{image.image_url.url}}" class="" alt="">
+        {% for cat in image.category.all %}
+            <h3 class="btn btn-primary">{{cat.category_name}}</h3>
+        {% endfor %}
+        {% for loc in image.location.all %}
+            <h3 class="btn btn-primary">{{loc.place}}</h3>
+        {% endfor %}
         </div>
         <div class="col-md-4">
             <h1>{{image.name}}</h1>
