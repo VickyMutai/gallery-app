@@ -41,3 +41,18 @@ class Image(models.Model):
 
     def delete_image(self):
         self.delete()
+
+    @classmethod
+    def get_images(cls):
+        images = Image.objects.all()
+        return images
+
+    @classmethod
+    def filter_by_location(cls,id):
+        images = Image.objects.filter(id=location.id)
+        return images
+
+    @classmethod
+    def search_by_category(cls, search_term):
+        category = cls.objects.filter(category__category_name__icontains=search_term)
+        return category 
