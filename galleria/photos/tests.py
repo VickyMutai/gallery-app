@@ -12,6 +12,11 @@ class CategoryTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.nature,Category))
 
+    def test_save_category(self):
+        self.nature.save_category()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories)>0)    
+
 class LocationTestClass(TestCase):
     #set up method
     def setUp(self):
@@ -21,6 +26,10 @@ class LocationTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.tsavo,Location))
 
+    def test_save_location(self):
+        self.tsavo.save_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations)>0)
 
 class ImageTestClass(TestCase):
     def setUp(self):
@@ -32,10 +41,6 @@ class ImageTestClass(TestCase):
         self.nature = Category(category_name="nature")
         self.nature.save()
 
-        #testing instance
-    def test_instance(self):
-        self.assertTrue(isinstance(self.elephant,Image))
-
         #creating new location and saving it
         self.tsavo = Location(place="Tsavo")
         self.tsavo.save()
@@ -43,3 +48,12 @@ class ImageTestClass(TestCase):
         self.elephant.location.add(self.tsavo)
         self.elephant.category.add(self.nature)
 
+    #testing instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.elephant,Image))
+
+    def test_save_image(self):
+        self.elephant.save_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images)>0)
+    
