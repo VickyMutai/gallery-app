@@ -5,7 +5,8 @@
 <h1 class="text-center">Photogallery</h1>
 
 {% for img in images %}
-    {{img.name}}
+    <a href="/image/{{img.id}}">{{img.name}}</a>
+    
     {% if img.image_url %}
         <img src="{{img.image_url.url}}" alt=""/>
     {% endif %}
