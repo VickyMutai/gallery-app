@@ -10,83 +10,67 @@
         <li><a href="#photography" data-toggle='pill'>Photography</a></li>
         <li><a href="#architecture" data-toggle='pill'>Architecture</a></li>
     </ul>
-    <div class="tab-content col-lg-4 col-md-4 col-sm-12" style="margin-top:4%">
+    <div class="tab-content" style="margin-top:4%">
     
     {% for img in images %}
-        {% for cat in img.category.all %}
-        <div id="nature" class="tab-pane fade in active">
-            {% if cat.category_name == "nature" %}
-            <div class="panel panel-primary">
-                <div class="panel-body">
-                    {% if img.image_url %}
-                    <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
-                    {% endif %}
-                </div>
-                <div class="panel-footer">
-                    <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{img.id}}">VIEW DETAILS</a></button>
+        {% for category in img.category.all %}
+        
+            {% if category.category_name == "nature" %}
+            <div id="nature" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade in active">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <img src="{{img.image_url.url}}" alt="{{img.name}}">
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{img.id}}">VIEW DETAILS</a></button>
+                    </div>
                 </div>
             </div>
+            {% elif category.category_name == "animal" %}
+            <div id="animal" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <img src="{{img.image_url.url}}" alt="{{img.name}}">
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{img.id}}">VIEW DETAILS</a></button>
+                        </div>
+                    </div>
+            </div>
+            {% elif category.category_name == "art" %}
+            <div id="art" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <img src="{{img.image_url.url}}" alt="{{img.name}}">
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{img.id}}">VIEW DETAILS</a></button>
+                        </div>
+                    </div>
+            </div>
+            {% elif category.category_name == "architecture" %}
+            <div id="architecture" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <img src="{{img.image_url.url}}" alt="{{img.name}}">
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{img.id}}">VIEW DETAILS</a></button>
+                        </div>
+                    </div>
+            </div>
+            {% else %}
+            <div id="photography" class="col-lg-4 col-md-4 col-sm-12 tab-pane fade">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <img src="{{img.image_url.url}}" alt="{{img.name}}">
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{img.id}}">VIEW DETAILS</a></button>
+                        </div>
+                    </div>
+            </div>
             {% endif %}
-        </div>  
-        <div id="animal" class="tab-pane fade">
-            {% if cat.category_name == "animal" %}    
-            <div class="panel panel-primary">
-                    <div class="panel-body">
-                        {% if img.image_url %}
-                        <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
-                        {% endif %}
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{img.id}}">VIEW DETAILS</a></button>
-                    </div>
-                </div>
-            {% endif %}
-        </div>
-        <div id="art" class="tab-pane fade">
-            {% if cat.category_name == "art" %}
-            <div class="panel panel-primary">
-                    <div class="panel-body">
-                        {% if img.image_url %}
-                        <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
-                        {% endif %}
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{img.id}}">VIEW DETAILS</a></button>
-                    </div>
-                </div>
-            {% endif %}
-        </div>
-        <div id="photography" class="tab-pane fade">
-            {% if cat.category_name == "photography" %}
-            <div class="panel panel-primary">
-                    <div class="panel-body">
-                        {% if img.image_url %}
-                        <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
-                        {% endif %}
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{img.id}}">VIEW DETAILS</a></button>
-                    </div>
-                </div>
-            {% endif %}
-        </div>   
-        <div id="architecture" class="tab-pane fade">
-            {% if cat.category_name == "architecture" %}
-            <div class="panel panel-primary">
-                    <div class="panel-body">
-                        {% if img.image_url %}
-                        <img src="{{img.image_url.url}}" alt="" class="img-rounded" style="margin:3%"/>
-                        {% endif %}
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-default" style="margin-left:30%"><a href="/image/{{img.id}}">VIEW DETAILS</a></button>
-                    </div>
-                </div>
-            {% endif %}
-        </div> 
         {% endfor %}
     {% endfor %}
-    </div>
-</div>
-
 {% endblock %}
